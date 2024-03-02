@@ -5,8 +5,7 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        -- "rust-analyzer",
-        "rnix-lsp",
+        "rust-analyzer",
       },
     },
   },
@@ -18,14 +17,12 @@ local plugins = {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    ft = { "rust" },
     dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
+    config = function()
+      require "custom.configs.rustaceanvim"
     end
   },
   {
