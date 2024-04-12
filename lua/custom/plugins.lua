@@ -2,13 +2,28 @@ local cmp = require "cmp"
 
 local plugins = {
   {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "rust-analyzer",
-      },
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    ft = {"python"},
+    opts = function()
+      return require "custom.configs.null-lsp"
+    end,
+  },
+  "williamboman/mason.nvim",
+  opts = {
+    ensure_installed = {
+      "pyright",
+      "mypy",
+      "ruff",
+      "black",
+      "rnix-lsp",
+      "lua-language-server",
     },
   },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -72,4 +87,5 @@ local plugins = {
     end,
   }
 }
+
 return plugins
