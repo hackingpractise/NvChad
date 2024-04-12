@@ -12,18 +12,19 @@ local plugins = {
       return require "custom.configs.null-lsp"
     end,
   },
-  "williamboman/mason.nvim",
-  opts = {
-    ensure_installed = {
-      "pyright",
-      "mypy",
-      "ruff",
-      "black",
-      "rnix-lsp",
-      "lua-language-server",
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+        "mypy",
+        "ruff",
+        "black",
+        "rnix-lsp",
+        "lua-language-server",
+      },
     },
   },
-
   {
     "neovim/nvim-lspconfig",
     config = function()
